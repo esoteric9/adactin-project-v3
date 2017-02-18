@@ -9,6 +9,9 @@ package com.amunteanu.helpers;
 
 import java.io.*;
 
+import org.apache.log4j.*;
+import org.openqa.selenium.*;
+
 /**
  * Core //ADDD (description of class)
  * <p>
@@ -22,15 +25,48 @@ import java.io.*;
  */
 public class Core {
 
-	public String getProp(String name) throws IOException {
-		return AutoBasics.getProp(name);
+	private WebDriver driver;
+
+	private Logger logger;
+
+	public Core() {
+		this.logger = Logger.getLogger(Core.class);
+	}
+
+	public Core(WebDriver driver) {
+		this.driver = driver;
+		this.logger = Logger.getLogger(Core.class);
+	}
+
+	public void addProp(String key, String value) {
+		AutoBasics.addProp(key, value);
+	}
+
+	public WebDriver getDriver() {
+		return this.driver;
+	}
+
+	protected void setDriver(WebDriver driver) {
+		this.driver = driver;
 	}
 
 	public int getInt(String name) throws IOException {
 		return AutoBasics.getInt(name);
 	}
 
-	public void addProp(String key, String value) throws IOException {
-		AutoBasics.addProp(key, value);
+	public Logger getLog() {
+		return this.logger;
+	}
+
+	public String getProp(String name) throws IOException {
+		return AutoBasics.getProp(name);
+	}
+
+	public boolean isElementPresent(By by) {
+		return AutoBasics.isElementPresent(getDriver(), by);
+	}
+
+	public boolean takeScreeshot(String name) {
+		return AutoBasics.takeScreenshot(getDriver(), name);
 	}
 }

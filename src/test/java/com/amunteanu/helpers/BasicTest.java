@@ -32,10 +32,7 @@ public class BasicTest extends Core {
 		this.baseURL = baseURL;
 	}
 
-	public WebDriver getDriver() {
-		return this.driver;
-	}
-
+	@Override
 	public Logger getLog() {
 		return this.log;
 	}

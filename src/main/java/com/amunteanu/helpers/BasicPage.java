@@ -7,7 +7,6 @@
  */
 package com.amunteanu.helpers;
 
-import org.apache.log4j.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.*;
 
@@ -24,30 +23,8 @@ import org.openqa.selenium.support.*;
  */
 public class BasicPage extends Core {
 
-	private WebDriver driver;
-
-	private Logger log;
-
-	public WebDriver getDriver() {
-		return this.driver;
-	}
-
 	public BasicPage(WebDriver driver) {
-		super();
-		this.driver = driver;
+		super(driver);
 		PageFactory.initElements(driver, this);
-		this.log = Logger.getLogger(BasicPage.class);
-	}
-
-	public Logger getLog() {
-		return this.log;
-	}
-
-	public boolean takeScreenshot(String name) {
-		return AutoBasics.takeScreenshot(this.getDriver(), name);
-	}
-
-	public boolean isElementPresent(By by) {
-		return AutoBasics.isElementPresent(getDriver(), by);
 	}
 }
