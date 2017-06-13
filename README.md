@@ -1,5 +1,4 @@
 # Basic Project
-## Basaic Project Structure
 
 *Default Structure for A Basic Project*
 
