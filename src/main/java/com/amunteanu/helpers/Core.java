@@ -26,6 +26,7 @@ import org.openqa.selenium.WebDriver;
  */
 public class Core
 {
+	private String baseURL;
 
 	private WebDriver driver;
 
@@ -42,11 +43,6 @@ public class Core
 		this.logger = Logger.getLogger(Core.class);
 	}
 
-	public void addProp(String key, String value)
-	{
-		AutoBasics.addProp(key, value);
-	}
-
 	public WebDriver getDriver()
 	{
 		return this.driver;
@@ -57,19 +53,39 @@ public class Core
 		this.driver = driver;
 	}
 
+	public String getBaseURL()
+	{
+		return baseURL;
+	}
+
+	protected void setBaseURL(String baseURL)
+	{
+		this.baseURL = baseURL;
+	}
+
+	public Logger getLogger()
+	{
+		return this.logger;
+	}
+
+	protected void setLogger(Logger logger)
+	{
+		this.logger = logger;
+	}
+
 	public int getInt(String name) throws IOException
 	{
 		return AutoBasics.getInt(name);
 	}
 
-	public Logger getLog()
-	{
-		return this.logger;
-	}
-
 	public String getProp(String name) throws IOException
 	{
 		return AutoBasics.getProp(name);
+	}
+
+	public void addProp(String key, String value)
+	{
+		AutoBasics.addProp(key, value);
 	}
 
 	public boolean isElementPresent(By by)
