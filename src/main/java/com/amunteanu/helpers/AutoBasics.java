@@ -20,6 +20,7 @@ import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -148,7 +149,7 @@ public class AutoBasics
 		addProp(key, value, DEFAULT_CONFIG_FILE_NAME);
 	}
 
-	public static String convertDateFormat(LocalDate date)
+	public static String convertDateToMonthDayYearFormat(LocalDate date)
 	{
 		/** 
 		 * Purpose: Convert LocalDate object to mm/dd/yyyy format
@@ -156,5 +157,37 @@ public class AutoBasics
 		String[] datePieces = date.toString().split("-");
 		String newDate = datePieces[1] + "/" + datePieces[2] + "/" + datePieces[0];
 		return newDate;
+	}
+
+	public static String convertDateToDayMonthYearFormat(LocalDate date)
+	{
+		/** 
+		 * Purpose: Convert LocalDate object to dd/mm/yyyy format
+		 */
+		String[] datePieces = date.toString().split("-");
+		String newDate = datePieces[2] + "/" + datePieces[1] + "/" + datePieces[0];
+		return newDate;
+	}
+
+	public static void checkPageIsReady(WebDriver driver)
+	{
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		if (js.executeScript("return document.readyState").toString().equals("complete"))
+		{
+			return;
+		}
+		for (int i = 0; i < 25; i++)
+		{
+			try
+			{
+				Thread.sleep(1000);
+			} catch (InterruptedException e)
+			{
+			}
+			if (js.executeScript("return document.readyState").toString().equals("complete"))
+			{
+				break;
+			}
+		}
 	}
 }
