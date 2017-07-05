@@ -1,13 +1,14 @@
-# Basic Project
+# Adactin Project V3
+### Testing the adactin hotel reservation app
+_This version uses page objects_
 
-*Default Structure for A Basic Project*
-
-_Java 7_
-
+Using:
+* Java 8
 * Maven
-* Log4j
 * TestNG
+* Log4j
+* Eclipse Neon
 
 Java Project for SQA Boot Camp Program.
 
-[Alex Munteanu]
+Author: [Alex Munteanu](amunteanu88@gmail.com)
