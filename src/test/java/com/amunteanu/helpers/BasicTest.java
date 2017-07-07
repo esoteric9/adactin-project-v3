@@ -30,7 +30,7 @@ public class BasicTest extends Core
 		getDriver().get(getBaseURL());
 	}
 
-	@BeforeMethod(groups = "chrome", enabled = false)
+	@BeforeMethod(groups = "chrome")
 	public void setupChrome()
 	{
 		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
@@ -40,9 +40,10 @@ public class BasicTest extends Core
 		getDriver().get(getBaseURL());
 	}
 
-	@BeforeMethod(groups = "ie", enabled = false)
+	@BeforeMethod(groups = "ie")
 	public void setupIE()
 	{
+		System.setProperty("webdriver.ie.driver", "drivers/IEDriverServer.exe");
 		WebDriver driver = new InternetExplorerDriver();
 		setDriver(driver);
 		getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
