@@ -1,6 +1,6 @@
 # Adactin Project V3
 ### Testing the adactin hotel reservation app
-_This version uses page objects_
+_This version uses page objects and a data provider_
 
 Using:
 * Java 8
