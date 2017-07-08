@@ -4,6 +4,7 @@ _This version uses page objects and a data provider_
 
 Using:
 * Java 8
+* Selenium 2
 * Maven
 * TestNG
 * Log4j
